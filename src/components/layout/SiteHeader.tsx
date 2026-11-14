@@ -48,11 +48,11 @@ export function SiteHeader() {
         <Link
           to="/"
           onClick={() => setOpen(false)}
-          className="flex items-center gap-2.5 font-display text-gold-light"
+          className="flex items-center gap-2 whitespace-nowrap font-display text-gold-light sm:gap-2.5"
         >
-          <span className="text-2xl font-semibold sm:text-3xl">{siteConfig.initials}</span>
-          <span className="h-7 w-px bg-gold/50" aria-hidden="true" />
-          <span className="text-2xl font-semibold sm:text-3xl">{siteConfig.name}</span>
+          <span className="text-xl font-semibold sm:text-3xl">{siteConfig.initials}</span>
+          <span className="h-6 w-px bg-gold/50 sm:h-7" aria-hidden="true" />
+          <span className="text-xl font-semibold sm:text-3xl">{siteConfig.name}</span>
           <LaurelIcon className="hidden text-gold sm:block" />
         </Link>
 
@@ -78,7 +78,7 @@ export function SiteHeader() {
           <span className="text-xs text-cream/85">{t.langHint}</span>
         </div>
 
-        <div className="flex items-center gap-3 lg:hidden">
+        <div className="flex items-center gap-2 sm:gap-3 lg:hidden">
           <LanguageToggle compact />
           <button
             type="button"
