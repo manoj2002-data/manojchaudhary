@@ -120,3 +120,30 @@ export function NepalFlag({ className }: { className?: string }) {
     </svg>
   );
 }
+
+export function IndiaFlag({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 30 20" className={className} role="img" aria-label="India">
+      <rect width="30" height="20" fill="#fff" />
+      <rect width="30" height="6.67" fill="#FF9933" />
+      <rect width="30" height="6.67" y="13.33" fill="#138808" />
+      <circle cx="15" cy="10" r="2.6" fill="none" stroke="#000080" strokeWidth=".7" />
+      <circle cx="15" cy="10" r=".6" fill="#000080" />
+    </svg>
+  );
+}
+
+export function UKFlag({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 60 30" className={className} role="img" aria-label="United Kingdom">
+      <clipPath id="uk-clip">
+        <path d="M30 15h30v15zv15H0zH0V0zV0h30z" />
+      </clipPath>
+      <path d="M0 0v30h60V0z" fill="#012169" />
+      <path d="M0 0l60 30m0-30L0 30" stroke="#fff" strokeWidth="6" />
+      <path d="M0 0l60 30m0-30L0 30" clipPath="url(#uk-clip)" stroke="#C8102E" strokeWidth="4" />
+      <path d="M30 0v30M0 15h60" stroke="#fff" strokeWidth="10" />
+      <path d="M30 0v30M0 15h60" stroke="#C8102E" strokeWidth="6" />
+    </svg>
+  );
+}

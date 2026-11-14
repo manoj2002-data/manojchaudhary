@@ -31,6 +31,6 @@ use the editor.
 
 ## Project rules
 
-- All personal details and both languages' texts live in `src/data/portfolio.ts`; components read text via `useLanguage().t` — keeps contact info and translations editable in one place.
+- All personal details and both languages' texts live in `src/data/` (`portfolio.ts` site-wide, `about.ts` for the About page); components read text via `useLanguage().t` — keeps contact info and translations editable in one place.
 - Shared header/footer render in `src/routes/__root.tsx` inside `LanguageProvider`; each site page (about, skills, projects, timeline, contact) is its own route file — future pages replace the `ComingSoon` placeholder without touching the homepage.
 - Homepage sections are separate components in `src/components/home/` — keeps them reusable on future pages.
