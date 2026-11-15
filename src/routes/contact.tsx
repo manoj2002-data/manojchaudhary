@@ -1,18 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { ComingSoon } from "@/components/ComingSoon";
+import { ContactPanel } from "@/components/sections/ContactPanel";
 
-// Placeholder page — replace ComingSoon with the real Contact page later.
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Manoj Chaudhary, Data Analyst" },
-      { name: "description", content: "Get in touch with Manoj Chaudhary, Data Analyst, by email, WhatsApp, GitHub or LinkedIn." },
+      { name: "description", content: "Contact Manoj Chaudhary, Data Analyst, by email, WhatsApp, GitHub or LinkedIn for Ausbildung and data analytics roles." },
       { property: "og:title", content: "Contact — Manoj Chaudhary" },
-      { property: "og:description", content: "Get in touch with Manoj Chaudhary, Data Analyst, by email, WhatsApp, GitHub or LinkedIn." },
+      { property: "og:description", content: "Contact Manoj Chaudhary, Data Analyst, by email, WhatsApp, GitHub or LinkedIn for Ausbildung and data analytics roles." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
   }),
-  component: () => <ComingSoon page="contact" />,
+  component: ContactPanel,
 });

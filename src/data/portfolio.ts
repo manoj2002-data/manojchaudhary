@@ -79,7 +79,6 @@ export interface SiteContent {
     connect: string;
   };
   footer: { heading: string; line: string[] };
-  comingSoon: { eyebrow: string; body: string; back: string };
 }
 
 export const content: Record<Lang, SiteContent> = {
@@ -167,11 +166,6 @@ export const content: Record<Lang, SiteContent> = {
       heading: "Proudly Nepali — Dhangadhi to Germany",
       line: ["Built for Ausbildung Germany 2028", "Available for Ausbildung Opportunities"],
     },
-    comingSoon: {
-      eyebrow: "Coming soon",
-      body: "This page is being prepared and will be available shortly.",
-      back: "Back to Home",
-    },
   },
 
   de: {
@@ -257,11 +251,6 @@ export const content: Record<Lang, SiteContent> = {
     footer: {
       heading: "Stolz auf Nepal — Von Dhangadhi nach Deutschland",
       line: ["Für die Ausbildung in Deutschland 2028", "Offen für Ausbildungsangebote"],
-    },
-    comingSoon: {
-      eyebrow: "Demnächst",
-      body: "Diese Seite wird gerade vorbereitet und ist bald verfügbar.",
-      back: "Zur Startseite",
     },
   },
 };

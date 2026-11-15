@@ -1,18 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { ComingSoon } from "@/components/ComingSoon";
+import { ProjectCards } from "@/components/sections/ProjectCards";
 
-// Placeholder page — replace ComingSoon with the real Projects page later.
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
       { title: "Projects — Manoj Chaudhary, Data Analyst" },
-      { name: "description", content: "Data analysis projects by Manoj Chaudhary built with Excel, Python and SQL." },
+      { name: "description", content: "Data analysis case studies by Manoj Chaudhary: an Excel sales dashboard, Python data cleaning and SQL sales analysis." },
       { property: "og:title", content: "Projects — Manoj Chaudhary" },
-      { property: "og:description", content: "Data analysis projects by Manoj Chaudhary built with Excel, Python and SQL." },
+      { property: "og:description", content: "Data analysis case studies by Manoj Chaudhary: an Excel sales dashboard, Python data cleaning and SQL sales analysis." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
   }),
-  component: () => <ComingSoon page="projects" />,
+  component: ProjectCards,
 });
