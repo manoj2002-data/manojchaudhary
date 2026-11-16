@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { ProjectsBoard } from "@/components/projects/ProjectsBoard";
+import { ProjectCards } from "@/components/sections/ProjectCards";
 
 const description =
   "Six upcoming data projects by Manoj Chaudhary: Pune rent prediction, Nepal tourism dashboard, DAAD scholarship analysis and more.";
@@ -16,5 +16,5 @@ export const Route = createFileRoute("/projects")({
       { name: "twitter:card", content: "summary" },
     ],
   }),
-  component: ProjectsBoard,
+  component: ProjectCards,
 });

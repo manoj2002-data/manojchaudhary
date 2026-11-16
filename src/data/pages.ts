@@ -18,6 +18,15 @@ export const skillLevels: Record<SkillId, number> = {
   analytics: 85,
 };
 
+/** The six upcoming projects shown on the Projects page (same order in both languages). */
+export type ProjectBoardId = "rent" | "tourism" | "daad" | "blocked" | "transport" | "sentiment";
+
+/** Manoj's GitHub, linked from every project card. */
+export const projectsGithub = {
+  url: "https://github.com/manojchaudharydata",
+  label: "github.com/manojchaudharydata",
+};
+
 export interface TimelineEntry {
   year: string;
   title: string;
@@ -32,6 +41,16 @@ export interface PagesContent {
     title: string;
     subtitle: string;
     items: { id: SkillId; title: string; tags: string[] }[];
+  };
+  projects: {
+    title: string;
+    subtitle: string;
+    githubButton: string;
+    demoButton: string;
+    /** Line under the cards: text before the GitHub link, then the parts after it. */
+    noteBefore: string;
+    noteAfter: string[];
+    items: { id: ProjectBoardId; date: string; title: string; tech: string; description: string }[];
   };
   timeline: { title: string; subtitle: string; items: TimelineEntry[] };
   contact: {
@@ -61,6 +80,62 @@ export const pagesContent: Record<Lang, PagesContent> = {
         { id: "powerbi", title: "Power BI", tags: ["Dashboards", "DAX", "Visualization"] },
         { id: "german", title: "German B2", tags: ["Goethe B2 Certified", "Business Ready"] },
         { id: "analytics", title: "Data Analytics", tags: ["Insights", "ETL", "Reporting"] },
+      ],
+    },
+    projects: {
+      title: "Projects",
+      subtitle: "6 projects • Coming Soon • Building new data solutions for Munich & beyond",
+      githubButton: "View on GitHub",
+      demoButton: "Live Demo • Coming Soon",
+      noteBefore: "View full code on GitHub",
+      noteAfter: ["Open to Data Analyst roles", "Available Aug 2028"],
+      items: [
+        {
+          id: "rent",
+          date: "Dec 2026",
+          title: "Pune Rent Prediction",
+          tech: "Python • ML",
+          description:
+            "Regression model to predict Pune PG rent using features like location, amenities, distance to campus, room type.",
+        },
+        {
+          id: "tourism",
+          date: "Jan 2027",
+          title: "Nepal Tourism Dashboard",
+          tech: "Power BI",
+          description:
+            "Interactive dashboard for Nepal tourism trends. Visitor arrivals, season, top destinations, revenue insights.",
+        },
+        {
+          id: "daad",
+          date: "Feb 2027",
+          title: "DAAD Scholarship Analysis",
+          tech: "Excel",
+          description:
+            "Analysis of DAAD scholarship trends. Success rates by country, field of study, year-on-year comparison.",
+        },
+        {
+          id: "blocked",
+          date: "March 2027",
+          title: "Germany Blocked Account Cost Calculator",
+          tech: "Python",
+          description: "Cost estimation tool for blocked account expenses. Monthly living costs, savings planning.",
+        },
+        {
+          id: "transport",
+          date: "March 2027",
+          title: "Public Transport Analysis of Germany",
+          tech: "Python",
+          description:
+            "Analysis of Germany public transport ridership. Route usage, peak hours, efficiency metrics, delay patterns.",
+        },
+        {
+          id: "sentiment",
+          date: "March 2027",
+          title: "Nepali Students in Germany Sentiment",
+          tech: "Python",
+          description: "NLP sentiment analysis on student feedback. Text preprocessing, sentiment scoring, insights.",
+        },
       ],
     },
     timeline: {
@@ -118,6 +193,63 @@ export const pagesContent: Record<Lang, PagesContent> = {
         { id: "analytics", title: "Datenanalyse", tags: ["Erkenntnisse", "ETL", "Reporting"] },
       ],
     },
+    projects: {
+      title: "Projekte",
+      subtitle: "6 Projekte • Demnächst • Neue Datenlösungen für München & darüber hinaus",
+      githubButton: "Auf GitHub ansehen",
+      demoButton: "Live-Demo • Demnächst",
+      noteBefore: "Vollständiger Code auf GitHub",
+      noteAfter: ["Offen für Data-Analyst-Stellen", "Verfügbar ab Aug. 2028"],
+      items: [
+        {
+          id: "rent",
+          date: "Dez. 2026",
+          title: "Mietpreisvorhersage Pune",
+          tech: "Python • ML",
+          description:
+            "Regressionsmodell zur Vorhersage von PG-Mieten in Pune anhand von Merkmalen wie Lage, Ausstattung, Entfernung zum Campus und Zimmertyp.",
+        },
+        {
+          id: "tourism",
+          date: "Jan. 2027",
+          title: "Nepal-Tourismus-Dashboard",
+          tech: "Power BI",
+          description:
+            "Interaktives Dashboard zu Tourismustrends in Nepal. Besucherankünfte, Saison, beliebteste Reiseziele, Umsatzeinblicke.",
+        },
+        {
+          id: "daad",
+          date: "Feb. 2027",
+          title: "DAAD-Stipendienanalyse",
+          tech: "Excel",
+          description:
+            "Analyse von DAAD-Stipendientrends. Erfolgsquoten nach Land und Studienfach, Vergleich mit dem Vorjahr.",
+        },
+        {
+          id: "blocked",
+          date: "März 2027",
+          title: "Sperrkonto-Kostenrechner für Deutschland",
+          tech: "Python",
+          description: "Tool zur Kostenschätzung für Sperrkonto-Ausgaben. Monatliche Lebenshaltungskosten, Sparplanung.",
+        },
+        {
+          id: "transport",
+          date: "März 2027",
+          title: "Analyse des öffentlichen Nahverkehrs in Deutschland",
+          tech: "Python",
+          description:
+            "Analyse der Fahrgastzahlen im deutschen Nahverkehr. Streckennutzung, Stoßzeiten, Effizienzkennzahlen, Verspätungsmuster.",
+        },
+        {
+          id: "sentiment",
+          date: "März 2027",
+          title: "Stimmungsanalyse: Nepalesische Studierende in Deutschland",
+          tech: "Python",
+          description:
+            "NLP-Stimmungsanalyse von Studierenden-Feedback. Textvorverarbeitung, Sentiment-Bewertung, Erkenntnisse.",
+        },
+      ],
+    },
     timeline: {
       title: "Mein Werdegang",
       subtitle: "Von Dhangadhi nach Deutschland",
@@ -161,74 +293,3 @@ export const pagesContent: Record<Lang, PagesContent> = {
   },
 };
 
-/**
- * Projects page — copied word-for-word from Manoj's brief.
- * Shown the same in both languages (the brief asked not to change any text).
- */
-export interface BoardProject {
-  date: string;
-  title: string;
-  tech: string;
-  description: string;
-}
-
-export const projectsBoard = {
-  name: "Manoj Chaudhary",
-  tagline: "Data Analyst • Munich, Germany • Applicant",
-  menu: [
-    { label: "About", to: "/about" },
-    { label: "Projects", to: "/projects" },
-    { label: "Skills", to: "/skills" },
-    { label: "Contact", to: "/contact" },
-  ] as const,
-  title: "Projects",
-  subtitle: "6 projects • Coming Soon • Building new data solutions for Munich & beyond",
-  githubButton: "View on GitHub",
-  demoButton: "Live Demo • Coming Soon",
-  githubUrl: "https://github.com/manojchaudharydata",
-  githubLabel: "github.com/manojchaudharydata",
-  footerBefore: "View full code on GitHub",
-  footerAfter: ["Open to Data Analyst roles", "Available Aug 2028"],
-  items: [
-    {
-      date: "Dec 2026",
-      title: "Pune Rent Prediction",
-      tech: "Python • ML",
-      description:
-        "Regression model to predict Pune PG rent using features like location, amenities, distance to campus, room type.",
-    },
-    {
-      date: "Jan 2027",
-      title: "Nepal Tourism Dashboard",
-      tech: "Power BI",
-      description:
-        "Interactive dashboard for Nepal tourism trends. Visitor arrivals, season, top destinations, revenue insights.",
-    },
-    {
-      date: "Feb 2027",
-      title: "DAAD Scholarship Analysis",
-      tech: "Excel",
-      description:
-        "Analysis of DAAD scholarship trends. Success rates by country, field of study, year-on-year comparison.",
-    },
-    {
-      date: "March 2027",
-      title: "Germany Blocked Account Cost Calculator",
-      tech: "Python",
-      description: "Cost estimation tool for blocked account expenses. Monthly living costs, savings planning.",
-    },
-    {
-      date: "March 2027",
-      title: "Public Transport Analysis of Germany",
-      tech: "Python",
-      description:
-        "Analysis of Germany public transport ridership. Route usage, peak hours, efficiency metrics, delay patterns.",
-    },
-    {
-      date: "March 2027",
-      title: "Nepali Students in Germany Sentiment",
-      tech: "Python",
-      description: "NLP sentiment analysis on student feedback. Text preprocessing, sentiment scoring, insights.",
-    },
-  ] satisfies BoardProject[],
-};

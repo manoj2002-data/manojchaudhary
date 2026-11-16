@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { pagesContent, projectsBoard, skillLevels } from "@/data/pages";
+import { pagesContent, projectsGithub, skillLevels } from "@/data/pages";
 
 describe("Skills page levels", () => {
   it("shows Python 90, SQL 85, Excel 95, Power BI 80, German 70, Data Analytics 85", () => {
@@ -15,7 +15,7 @@ describe("Skills page levels", () => {
 
 describe("Projects page", () => {
   it("has exactly the six projects from the brief, in order, with their dates", () => {
-    expect(projectsBoard.items.map((p) => [p.date, p.title])).toEqual([
+    expect(pagesContent.en.projects.items.map((p) => [p.date, p.title])).toEqual([
       ["Dec 2026", "Pune Rent Prediction"],
       ["Jan 2027", "Nepal Tourism Dashboard"],
       ["Feb 2027", "DAAD Scholarship Analysis"],
@@ -25,8 +25,12 @@ describe("Projects page", () => {
     ]);
   });
 
+  it("shows the same six projects in German", () => {
+    expect(pagesContent.de.projects.items.map((p) => p.id)).toEqual(pagesContent.en.projects.items.map((p) => p.id));
+  });
+
   it("links GitHub to github.com/manojchaudharydata", () => {
-    expect(projectsBoard.githubUrl).toBe("https://github.com/manojchaudharydata");
+    expect(projectsGithub.url).toBe("https://github.com/manojchaudharydata");
   });
 });
 
