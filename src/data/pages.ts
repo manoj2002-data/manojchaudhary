@@ -6,7 +6,7 @@
  *  live in `siteConfig` in src/data/portfolio.ts.
  * ============================================================
  */
-import type { Lang, ProjectId, SkillId } from "@/data/portfolio";
+import type { Lang, SkillId } from "@/data/portfolio";
 
 /** Skill levels are shared by both languages so they never drift apart. */
 export const skillLevels: Record<SkillId, number> = {
@@ -32,19 +32,6 @@ export interface PagesContent {
     title: string;
     subtitle: string;
     items: { id: SkillId; title: string; tags: string[] }[];
-  };
-  projects: {
-    title: string;
-    subtitle: string;
-    featuredLabel: string;
-    items: {
-      id: ProjectId;
-      title: string;
-      description: string;
-      highlight: string;
-      tags: string[];
-      featured?: boolean;
-    }[];
   };
   timeline: { title: string; subtitle: string; items: TimelineEntry[] };
   contact: {
@@ -74,37 +61,6 @@ export const pagesContent: Record<Lang, PagesContent> = {
         { id: "powerbi", title: "Power BI", tags: ["Dashboards", "DAX", "Visualization"] },
         { id: "german", title: "German B2", tags: ["Goethe B2 Certified", "Business Ready"] },
         { id: "analytics", title: "Data Analytics", tags: ["Insights", "ETL", "Reporting"] },
-      ],
-    },
-    projects: {
-      title: "Projects",
-      subtitle: "Selected Work & Case Studies",
-      featuredLabel: "Featured Project",
-      items: [
-        {
-          id: "excel",
-          title: "Sales Dashboard — Excel",
-          description:
-            "Interactive sales dashboard analyzing regional revenue trends, profit margins & top products using Excel Pivot & Charts.",
-          highlight: "Delivered insights to improve 15% sales performance.",
-          tags: ["Excel", "Pivot", "Analytics"],
-          featured: true,
-        },
-        {
-          id: "python",
-          title: "Python Data Cleaning",
-          description: "Automated data cleaning pipeline for messy customer data using Python Pandas.",
-          highlight: "Handled missing values • duplicates • outliers.",
-          tags: ["Python", "Pandas", "Data Cleaning"],
-        },
-        {
-          id: "sql",
-          title: "SQL Analysis",
-          description:
-            "Performed SQL analysis on sales database to identify customer segments, revenue by month & cohort insights.",
-          highlight: "Wrote complex joins • window functions.",
-          tags: ["SQL", "PostgreSQL", "Analytics"],
-        },
       ],
     },
     timeline: {
@@ -162,37 +118,6 @@ export const pagesContent: Record<Lang, PagesContent> = {
         { id: "analytics", title: "Datenanalyse", tags: ["Erkenntnisse", "ETL", "Reporting"] },
       ],
     },
-    projects: {
-      title: "Projekte",
-      subtitle: "Ausgewählte Arbeiten & Fallstudien",
-      featuredLabel: "Hauptprojekt",
-      items: [
-        {
-          id: "excel",
-          title: "Vertriebs-Dashboard — Excel",
-          description:
-            "Interaktives Vertriebs-Dashboard zur Analyse regionaler Umsatztrends, Gewinnmargen und Top-Produkte mit Excel-Pivot und Diagrammen.",
-          highlight: "Erkenntnisse zur Steigerung der Verkaufsleistung um 15 %.",
-          tags: ["Excel", "Pivot", "Analytics"],
-          featured: true,
-        },
-        {
-          id: "python",
-          title: "Datenbereinigung mit Python",
-          description: "Automatisierte Pipeline zur Bereinigung unstrukturierter Kundendaten mit Python Pandas.",
-          highlight: "Fehlende Werte • Duplikate • Ausreißer behandelt.",
-          tags: ["Python", "Pandas", "Data Cleaning"],
-        },
-        {
-          id: "sql",
-          title: "SQL-Analyse",
-          description:
-            "SQL-Analyse einer Vertriebsdatenbank zur Ermittlung von Kundensegmenten, Monatsumsätzen und Kohorten-Erkenntnissen.",
-          highlight: "Komplexe Joins • Fensterfunktionen geschrieben.",
-          tags: ["SQL", "PostgreSQL", "Analytics"],
-        },
-      ],
-    },
     timeline: {
       title: "Mein Werdegang",
       subtitle: "Von Dhangadhi nach Deutschland",
@@ -234,4 +159,76 @@ export const pagesContent: Record<Lang, PagesContent> = {
       availability: "Offen für Ausbildungsangebote • Deutschland 2028",
     },
   },
+};
+
+/**
+ * Projects page — copied word-for-word from Manoj's brief.
+ * Shown the same in both languages (the brief asked not to change any text).
+ */
+export interface BoardProject {
+  date: string;
+  title: string;
+  tech: string;
+  description: string;
+}
+
+export const projectsBoard = {
+  name: "Manoj Chaudhary",
+  tagline: "Data Analyst • Munich, Germany • Applicant",
+  menu: [
+    { label: "About", to: "/about" },
+    { label: "Projects", to: "/projects" },
+    { label: "Skills", to: "/skills" },
+    { label: "Contact", to: "/contact" },
+  ] as const,
+  title: "Projects",
+  subtitle: "6 projects • Coming Soon • Building new data solutions for Munich & beyond",
+  githubButton: "View on GitHub",
+  demoButton: "Live Demo • Coming Soon",
+  githubUrl: "https://github.com/manojchaudharydata",
+  githubLabel: "github.com/manojchaudharydata",
+  footerBefore: "View full code on GitHub",
+  footerAfter: ["Open to Data Analyst roles", "Available Aug 2028"],
+  items: [
+    {
+      date: "Dec 2026",
+      title: "Pune Rent Prediction",
+      tech: "Python • ML",
+      description:
+        "Regression model to predict Pune PG rent using features like location, amenities, distance to campus, room type.",
+    },
+    {
+      date: "Jan 2027",
+      title: "Nepal Tourism Dashboard",
+      tech: "Power BI",
+      description:
+        "Interactive dashboard for Nepal tourism trends. Visitor arrivals, season, top destinations, revenue insights.",
+    },
+    {
+      date: "Feb 2027",
+      title: "DAAD Scholarship Analysis",
+      tech: "Excel",
+      description:
+        "Analysis of DAAD scholarship trends. Success rates by country, field of study, year-on-year comparison.",
+    },
+    {
+      date: "March 2027",
+      title: "Germany Blocked Account Cost Calculator",
+      tech: "Python",
+      description: "Cost estimation tool for blocked account expenses. Monthly living costs, savings planning.",
+    },
+    {
+      date: "March 2027",
+      title: "Public Transport Analysis of Germany",
+      tech: "Python",
+      description:
+        "Analysis of Germany public transport ridership. Route usage, peak hours, efficiency metrics, delay patterns.",
+    },
+    {
+      date: "March 2027",
+      title: "Nepali Students in Germany Sentiment",
+      tech: "Python",
+      description: "NLP sentiment analysis on student feedback. Text preprocessing, sentiment scoring, insights.",
+    },
+  ] satisfies BoardProject[],
 };

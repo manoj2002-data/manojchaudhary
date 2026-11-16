@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { pagesContent, skillLevels } from "@/data/pages";
+import { pagesContent, projectsBoard, skillLevels } from "@/data/pages";
 
 describe("Skills page levels", () => {
   it("shows Python 90, SQL 85, Excel 95, Power BI 80, German 70, Data Analytics 85", () => {
@@ -14,12 +14,19 @@ describe("Skills page levels", () => {
 });
 
 describe("Projects page", () => {
-  it("has exactly the three real projects, with the Excel dashboard featured", () => {
-    for (const lang of ["en", "de"] as const) {
-      const items = pagesContent[lang].projects.items;
-      expect(items.map((p) => p.id)).toEqual(["excel", "python", "sql"]);
-      expect(items.filter((p) => p.featured).map((p) => p.id)).toEqual(["excel"]);
-    }
+  it("has exactly the six projects from the brief, in order, with their dates", () => {
+    expect(projectsBoard.items.map((p) => [p.date, p.title])).toEqual([
+      ["Dec 2026", "Pune Rent Prediction"],
+      ["Jan 2027", "Nepal Tourism Dashboard"],
+      ["Feb 2027", "DAAD Scholarship Analysis"],
+      ["March 2027", "Germany Blocked Account Cost Calculator"],
+      ["March 2027", "Public Transport Analysis of Germany"],
+      ["March 2027", "Nepali Students in Germany Sentiment"],
+    ]);
+  });
+
+  it("links GitHub to github.com/manojchaudharydata", () => {
+    expect(projectsBoard.githubUrl).toBe("https://github.com/manojchaudharydata");
   });
 });
 

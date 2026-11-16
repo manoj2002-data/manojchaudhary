@@ -58,6 +58,19 @@
   --color-ink: var(--ink);
   --color-icon-tile: var(--icon-tile);
 
+  /* Projects page palette (Manoj's own Projects design) */
+  --color-navy: var(--navy);
+  --color-teal: var(--teal);
+  --color-beige: var(--beige);
+  --color-board-green: var(--board-green);
+  --color-board-button: var(--board-button);
+  --color-board-gold: var(--board-gold);
+  --color-board-line: var(--board-line);
+  --color-board-muted: var(--board-muted);
+  --color-board-text: var(--board-text);
+  --color-board-grey: var(--board-grey);
+  --font-board: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
   --shadow-card: var(--shadow-card);
   --shadow-lift: var(--shadow-lift);
 }
@@ -77,6 +90,17 @@
   --sage-text: oklch(0.829 0.089 120.1);
   --ink: oklch(0.249 0.031 162.6);
   --icon-tile: oklch(0.546 0.074 152.1);
+
+  --navy: #0f2a3a;
+  --teal: #5ba9a0;
+  --beige: #f5f1e8;
+  --board-green: #1a6b4f;
+  --board-button: #0e7a4d;
+  --board-gold: #d9c08a;
+  --board-line: #e5e0d5;
+  --board-muted: #666666;
+  --board-text: #333333;
+  --board-grey: #d9d9d9;
 
   --background: var(--cream);
   --foreground: var(--ink);
