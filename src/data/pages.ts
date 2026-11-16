@@ -65,6 +65,20 @@ export interface PagesContent {
     sendMessage: string;
     emailSubject: string;
     availability: string;
+    form: {
+      title: string;
+      name: string;
+      namePlaceholder: string;
+      email: string;
+      emailPlaceholder: string;
+      message: string;
+      messagePlaceholder: string;
+      sendHint: string;
+      emailApp: string;
+      copyEmail: string;
+      copied: string;
+      errors: { name: string; email: string; message: string };
+    };
   };
 }
 
@@ -177,6 +191,24 @@ export const pagesContent: Record<Lang, PagesContent> = {
       sendMessage: "Send Message",
       emailSubject: "Ausbildung / Data Analytics opportunity",
       availability: "Available for Ausbildung Opportunities • Germany 2028",
+      form: {
+        title: "Write to me",
+        name: "Your name",
+        namePlaceholder: "e.g. Anna Müller",
+        email: "Your email",
+        emailPlaceholder: "you@example.com",
+        message: "Message",
+        messagePlaceholder: "Hello Manoj, …",
+        sendHint: "Opens Gmail in a new tab with your message ready to send.",
+        emailApp: "Or open in your email app",
+        copyEmail: "Copy email",
+        copied: "Copied!",
+        errors: {
+          name: "Please enter your name.",
+          email: "Please enter a valid email address.",
+          message: "Please write a message (max. 2000 characters).",
+        },
+      },
     },
   },
 
@@ -289,6 +321,24 @@ export const pagesContent: Record<Lang, PagesContent> = {
       sendMessage: "Nachricht senden",
       emailSubject: "Ausbildung / Datenanalyse",
       availability: "Offen für Ausbildungsangebote • Deutschland 2028",
+      form: {
+        title: "Schreiben Sie mir",
+        name: "Ihr Name",
+        namePlaceholder: "z. B. Anna Müller",
+        email: "Ihre E-Mail",
+        emailPlaceholder: "sie@beispiel.de",
+        message: "Nachricht",
+        messagePlaceholder: "Hallo Manoj, …",
+        sendHint: "Öffnet Gmail in einem neuen Tab – Ihre Nachricht ist bereits ausgefüllt.",
+        emailApp: "Oder im E-Mail-Programm öffnen",
+        copyEmail: "E-Mail kopieren",
+        copied: "Kopiert!",
+        errors: {
+          name: "Bitte geben Sie Ihren Namen ein.",
+          email: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+          message: "Bitte schreiben Sie eine Nachricht (max. 2000 Zeichen).",
+        },
+      },
     },
   },
 };

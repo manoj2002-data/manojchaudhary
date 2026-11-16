@@ -1,7 +1,9 @@
 import { Mail, MapPin, Share2 } from "lucide-react";
 import type { ReactNode } from "react";
 
+import { CopyEmailButton } from "@/components/CopyEmailButton";
 import { Reveal } from "@/components/Reveal";
+import { pagesContent } from "@/data/pages";
 import { siteConfig } from "@/data/portfolio";
 import { useLanguage } from "@/lib/language";
 
@@ -33,7 +35,8 @@ const linkClass =
   "break-all underline-offset-4 transition-colors hover:text-gold-deep hover:underline";
 
 export function ContactSection() {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
+  const form = pagesContent[lang].contact.form;
   return (
     <section className="bg-ivory px-5 py-12 lg:px-10">
       <h2 className="text-center text-3xl font-semibold text-forest-deep md:text-4xl">
@@ -47,6 +50,13 @@ export function ContactSection() {
           <a href={`mailto:${siteConfig.email}`} className={linkClass}>
             {siteConfig.email}
           </a>
+          <div>
+            <CopyEmailButton
+              label={form.copyEmail}
+              copiedLabel={form.copied}
+              className="border-gold-deep/50 text-forest-deep hover:bg-gold/20"
+            />
+          </div>
         </ContactBlock>
         <ContactBlock icon={<Share2 className="size-8" />} title={t.contact.connect} delay={200}>
           <p>

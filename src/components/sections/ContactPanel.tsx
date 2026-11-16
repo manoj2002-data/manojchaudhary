@@ -1,12 +1,14 @@
-import { Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 import type { ReactNode } from "react";
 
+import { CopyEmailButton } from "@/components/CopyEmailButton";
 import { WhatsAppIcon } from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
 import { pagesContent } from "@/data/pages";
 import { buildWhatsAppLink, siteConfig } from "@/data/portfolio";
 import { useLanguage } from "@/lib/language";
 
+import { ContactForm } from "./ContactForm";
 import { DarkSection } from "./DarkSection";
 
 const linkClass = "break-all underline-offset-4 transition-colors hover:text-gold hover:underline";
@@ -27,7 +29,6 @@ export function ContactPanel() {
   const { lang } = useLanguage();
   const c = pagesContent[lang].contact;
   const whatsapp = buildWhatsAppLink(siteConfig.whatsappNumber, siteConfig.whatsappMessage);
-  const mailto = `mailto:${siteConfig.email}?subject=${encodeURIComponent(c.emailSubject)}`;
 
   return (
     <DarkSection title={c.title} subtitle={c.subtitle}>
@@ -39,6 +40,13 @@ export function ContactPanel() {
           <a href={`mailto:${siteConfig.email}`} className={linkClass}>
             {siteConfig.email}
           </a>
+          <div>
+            <CopyEmailButton
+              label={c.form.copyEmail}
+              copiedLabel={c.form.copied}
+              className="border-gold/50 text-gold-light hover:bg-gold/15"
+            />
+          </div>
         </Item>
         <Item icon={<WhatsAppIcon size={34} />} title={c.phone} delay={160}>
           <a href={whatsapp} target="_blank" rel="noopener noreferrer" className={linkClass}>
@@ -59,14 +67,9 @@ export function ContactPanel() {
         </div>
       </div>
 
+      <ContactForm />
+
       <div className="mt-10 flex flex-col items-center gap-5">
-        <a
-          href={mailto}
-          className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-gold-deep via-gold to-gold-light px-14 py-3 text-xl font-semibold text-forest-deep shadow-card transition-all hover:-translate-y-0.5 hover:shadow-lift"
-        >
-          <Send className="size-5" />
-          {c.sendMessage}
-        </a>
         <p className="rounded-full border border-gold/70 px-5 py-1.5 text-center text-base font-medium text-gold-light">
           {c.availability}
         </p>

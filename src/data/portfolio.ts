@@ -20,8 +20,10 @@ export const siteConfig = {
   whatsappNumber: "9779800000000",
   whatsappMessage: "Hello Manoj, I saw your portfolio and would like to get in touch.",
 
+  /** Real email (confirmed by Manoj). Contact form messages go here. */
+  email: "manojchaudhary2.data@gmail.com",
+
   /** PLACEHOLDER contact details — replace with your real ones. */
-  email: "manoj.chaudhary@email.com",
   location: "Pune, India",
   github: { label: "github.com/manojchaudhary", url: "https://github.com/manojchaudhary" },
   linkedin: {
