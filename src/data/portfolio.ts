@@ -16,8 +16,10 @@ export const siteConfig = {
   /** Profile photo shown at the top of the homepage. Replace with your own image URL or import. */
   portraitUrl: portraitAsset.url,
 
-  /** WhatsApp number in international format, digits only (country code first). PLACEHOLDER — replace. */
-  whatsappNumber: "9779800000000",
+  /** Real WhatsApp number (confirmed by Manoj), international format, digits only. */
+  whatsappNumber: "918956496988",
+  /** How the number is shown on the CV. */
+  whatsappDisplay: "+91 89564 96988",
   whatsappMessage: "Hello Manoj, I saw your portfolio and would like to get in touch.",
 
   /** Real email (confirmed by Manoj). Contact form messages go here. */
@@ -63,8 +65,8 @@ export interface SiteContent {
     subtitlePlace: string;
     description: string;
     location: string;
-    viewPortfolio: string;
-    contactMe: string;
+    viewCv: string;
+    hireMe: string;
     skillTag: string;
     portraitAlt: string;
   };
@@ -99,8 +101,8 @@ export const content: Record<Lang, SiteContent> = {
       subtitlePlace: "Dhangadhi to Germany",
       description: "Nepali Passport Holder • Ausbildung Fachinformatiker Daten- und Prozessanalyse",
       location: "Germany • Class of 2028",
-      viewPortfolio: "View Portfolio",
-      contactMe: "Contact Me",
+      viewCv: "View CV",
+      hireMe: "Hire Me",
       skillTag: "Data Analyst • Python • Power BI • SQL",
       portraitAlt: "Portrait of Manoj Chaudhary",
     },
@@ -185,8 +187,8 @@ export const content: Record<Lang, SiteContent> = {
       subtitlePlace: "Von Dhangadhi nach Deutschland",
       description: "Nepalesischer Staatsbürger • Ausbildung Fachinformatiker Daten- und Prozessanalyse",
       location: "Deutschland • Jahrgang 2028",
-      viewPortfolio: "Portfolio ansehen",
-      contactMe: "Kontakt",
+      viewCv: "Lebenslauf ansehen",
+      hireMe: "Stellen Sie mich ein",
       skillTag: "Datenanalyst • Python • Power BI • SQL",
       portraitAlt: "Porträt von Manoj Chaudhary",
     },

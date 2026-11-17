@@ -2,12 +2,17 @@ import { QueryClient } from "@tanstack/react-query";
 import { createRouter } from "@tanstack/react-router";
 import { describe, expect, it } from "vitest";
 
-import { buildWhatsAppLink, content, navItems } from "@/data/portfolio";
+import { cvContent } from "@/data/cv";
+import { buildWhatsAppLink, content, navItems, siteConfig } from "@/data/portfolio";
 import { routeTree } from "@/routeTree.gen";
 
 describe("WhatsApp contact link", () => {
   it("keeps only digits from the phone number", () => {
     expect(buildWhatsAppLink("+977 980-000 0000")).toBe("https://wa.me/9779800000000");
+  });
+
+  it("Hire Me opens WhatsApp chat with +91 8956496988", () => {
+    expect(buildWhatsAppLink(siteConfig.whatsappNumber)).toBe("https://wa.me/918956496988");
   });
 
   it("encodes the prefilled message", () => {
@@ -18,7 +23,7 @@ describe("WhatsApp contact link", () => {
 describe("Site pages", () => {
   const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
 
-  it.each(["/about", "/skills", "/projects", "/timeline", "/contact"])(
+  it.each(["/cv", "/about", "/skills", "/projects", "/timeline", "/contact"])(
     "%s has its own page",
     (path) => {
       expect(router.matchRoutes(path).at(-1)?.routeId).toBe(path);
@@ -43,5 +48,18 @@ describe("Language toggle content", () => {
     expect(content.de.projects.items.map((p) => p.id)).toEqual(
       content.en.projects.items.map((p) => p.id),
     );
+  });
+});
+
+describe("Europass CV", () => {
+  it("has the same sections in German and English", () => {
+    expect(Object.keys(cvContent.de.sections)).toEqual(Object.keys(cvContent.en.sections));
+    expect(cvContent.de.education).toHaveLength(cvContent.en.education.length);
+    expect(cvContent.de.languages.items).toHaveLength(cvContent.en.languages.items.length);
+  });
+
+  it("lists Pune, India as the current address", () => {
+    expect(cvContent.en.address).toBe("Pune, India");
+    expect(cvContent.de.address).toBe("Pune, Indien");
   });
 });

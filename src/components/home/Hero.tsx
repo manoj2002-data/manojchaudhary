@@ -1,4 +1,5 @@
-import { ArrowRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { FileText } from "lucide-react";
 
 import { GermanFlag, WhatsAppIcon } from "@/components/icons";
 import { buildWhatsAppLink, siteConfig } from "@/data/portfolio";
@@ -37,13 +38,13 @@ export function Hero() {
           </p>
 
           <div className="mt-7 flex flex-wrap gap-4">
-            <a
-              href="#projects"
+            <Link
+              to="/cv"
               className="inline-flex items-center gap-3 rounded-md bg-gold px-7 py-3 text-lg font-semibold text-forest-deep shadow-card transition-all hover:-translate-y-0.5 hover:bg-gold-light hover:shadow-lift"
             >
-              <ArrowRight className="size-5" />
-              {t.hero.viewPortfolio}
-            </a>
+              <FileText className="size-5" />
+              {t.hero.viewCv}
+            </Link>
             <a
               href={whatsapp}
               target="_blank"
@@ -51,7 +52,7 @@ export function Hero() {
               className="inline-flex items-center gap-3 rounded-md border border-gold/70 px-7 py-3 text-lg font-semibold text-gold-light transition-all hover:-translate-y-0.5 hover:bg-gold/10"
             >
               <WhatsAppIcon />
-              {t.hero.contactMe}
+              {t.hero.hireMe}
             </a>
           </div>
 

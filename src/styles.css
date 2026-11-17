@@ -200,3 +200,19 @@
     transition: none;
   }
 }
+
+/* Printing the CV ("Download PDF") */
+@page {
+  size: A4;
+  margin: 14mm;
+}
+@media print {
+  body {
+    background: white;
+  }
+  .cv-sheet {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    background: white;
+  }
+}

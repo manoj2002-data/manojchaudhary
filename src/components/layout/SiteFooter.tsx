@@ -10,7 +10,7 @@ export function SiteFooter() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const line = pathname === "/about" ? aboutContent[lang].footerLine : t.footer.line;
   return (
-    <footer className="geo-pattern bg-forest px-5 py-9 text-center">
+    <footer className="print:hidden geo-pattern bg-forest px-5 py-9 text-center">
       <h2 className="flex flex-wrap items-center justify-center gap-3 text-2xl font-semibold text-gold md:text-3xl">
         <NepalFlag className="h-8 w-auto" />
         <span>{t.footer.heading}</span>

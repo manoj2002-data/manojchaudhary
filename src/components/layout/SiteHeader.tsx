@@ -43,7 +43,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gold/30 bg-forest/95 backdrop-blur supports-[backdrop-filter]:bg-forest/90">
+    <header className="print:hidden sticky top-0 z-50 border-b border-gold/30 bg-forest/95 backdrop-blur supports-[backdrop-filter]:bg-forest/90">
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-5 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:px-10">
         <Link
           to="/"
