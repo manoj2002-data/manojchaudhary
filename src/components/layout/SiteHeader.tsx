@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowLeftRight, Menu, X } from "lucide-react";
+import { ArrowLeftRight, Github, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 import { LaurelIcon } from "@/components/icons";
@@ -74,7 +74,19 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden flex-col items-end gap-1 lg:flex">
-          <LanguageToggle />
+          <div className="flex items-center gap-2">
+            <a
+              href={siteConfig.github.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={siteConfig.github.label}
+              title={siteConfig.github.label}
+              className="rounded-md border border-gold/50 p-1.5 text-gold-light transition-colors hover:bg-forest-soft hover:text-gold"
+            >
+              <Github className="size-4" />
+            </a>
+            <LanguageToggle />
+          </div>
           <span className="text-xs text-cream/85">{t.langHint}</span>
         </div>
 
@@ -113,6 +125,15 @@ export function SiteHeader() {
               </li>
             ))}
           </ul>
+          <a
+            href={siteConfig.github.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 flex items-center gap-2 rounded-md border border-gold/50 px-3 py-2 text-base font-medium text-gold-light transition-colors hover:bg-forest-soft hover:text-gold"
+          >
+            <Github className="size-5" />
+            {siteConfig.github.label}
+          </a>
           <p className="pt-3 text-xs text-cream/75">{t.langHint}</p>
         </nav>
       )}
