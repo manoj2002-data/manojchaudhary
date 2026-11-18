@@ -29,8 +29,8 @@ describe("Projects page", () => {
     expect(pagesContent.de.projects.items.map((p) => p.id)).toEqual(pagesContent.en.projects.items.map((p) => p.id));
   });
 
-  it("links GitHub to github.com/manojchaudharydata", () => {
-    expect(projectsGithub.url).toBe("https://github.com/manojchaudharydata");
+  it("links GitHub to github.com/manoj2002-data", () => {
+    expect(projectsGithub.url).toBe("https://github.com/manoj2002-data");
   });
 });
 

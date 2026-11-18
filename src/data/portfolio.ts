@@ -28,7 +28,7 @@ export const siteConfig = {
   /** Current city (confirmed by Manoj). */
   location: "Pune, India",
   /** Real GitHub (confirmed by Manoj). */
-  github: { label: "github.com/manojchaudharydata", url: "https://github.com/manojchaudharydata" },
+  github: { label: "github.com/manoj2002-data", url: "https://github.com/manoj2002-data" },
   /** LinkedIn profile — set to { label, url } to show it on the site; null hides it. */
   linkedin: null as { label: string; url: string } | null,
 
