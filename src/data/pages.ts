@@ -6,7 +6,7 @@
  *  live in `siteConfig` in src/data/portfolio.ts.
  * ============================================================
  */
-import type { Lang, SkillId } from "@/data/portfolio";
+import { siteConfig, type Lang, type SkillId } from "@/data/portfolio";
 
 /** Skill levels are shared by both languages so they never drift apart. */
 export const skillLevels: Record<SkillId, number> = {
@@ -22,10 +22,7 @@ export const skillLevels: Record<SkillId, number> = {
 export type ProjectBoardId = "rent" | "tourism" | "daad" | "blocked" | "transport" | "sentiment";
 
 /** Manoj's GitHub, linked from every project card. */
-export const projectsGithub = {
-  url: "https://github.com/manojchaudharydata",
-  label: "github.com/manojchaudharydata",
-};
+export const projectsGithub = siteConfig.github;
 
 export interface TimelineEntry {
   year: string;
@@ -185,7 +182,7 @@ export const pagesContent: Record<Lang, PagesContent> = {
       location: "Location",
       email: "Email",
       phone: "Phone / WhatsApp",
-      whatsappText: "Available on WhatsApp",
+      whatsappText: "Chat on WhatsApp",
       github: "GitHub",
       linkedin: "LinkedIn",
       sendMessage: "Send Message",
@@ -315,7 +312,7 @@ export const pagesContent: Record<Lang, PagesContent> = {
       location: "Standort",
       email: "E-Mail",
       phone: "Telefon / WhatsApp",
-      whatsappText: "Erreichbar über WhatsApp",
+      whatsappText: "Auf WhatsApp schreiben",
       github: "GitHub",
       linkedin: "LinkedIn",
       sendMessage: "Nachricht senden",

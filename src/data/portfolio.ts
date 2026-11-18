@@ -25,15 +25,14 @@ export const siteConfig = {
   /** Real email (confirmed by Manoj). Contact form messages go here. */
   email: "manojchaudhary2.data@gmail.com",
 
-  /** PLACEHOLDER contact details — replace with your real ones. */
+  /** Current city (confirmed by Manoj). */
   location: "Pune, India",
-  github: { label: "github.com/manojchaudhary", url: "https://github.com/manojchaudhary" },
-  linkedin: {
-    label: "linkedin.com/in/manojchaudhary",
-    url: "https://www.linkedin.com/in/manojchaudhary",
-  },
+  /** Real GitHub (confirmed by Manoj). */
+  github: { label: "github.com/manojchaudharydata", url: "https://github.com/manojchaudharydata" },
+  /** LinkedIn profile — set to { label, url } to show it on the site; null hides it. */
+  linkedin: null as { label: string; url: string } | null,
 
-  copyrightYear: 2025,
+  copyrightYear: 2026,
 } as const;
 
 /** Builds a wa.me link: keeps only digits from the number and URL-encodes the message. */

@@ -1,10 +1,11 @@
-import { Mail, MapPin, Share2 } from "lucide-react";
+import { Github, Mail, MapPin } from "lucide-react";
 import type { ReactNode } from "react";
 
 import { CopyEmailButton } from "@/components/CopyEmailButton";
+import { WhatsAppIcon } from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
 import { pagesContent } from "@/data/pages";
-import { siteConfig } from "@/data/portfolio";
+import { buildWhatsAppLink, siteConfig } from "@/data/portfolio";
 import { useLanguage } from "@/lib/language";
 
 function ContactBlock({
@@ -24,7 +25,7 @@ function ContactBlock({
         {icon}
       </div>
       <div className="min-w-0">
-        <h3 className="text-xl font-semibold text-forest-deep">{title}</h3>
+        <h3 className="text-xl font-semibold text-forest-deep xl:whitespace-nowrap">{title}</h3>
         <div className="text-base text-ink/90">{children}</div>
       </div>
     </Reveal>
@@ -32,17 +33,19 @@ function ContactBlock({
 }
 
 const linkClass =
-  "break-all underline-offset-4 transition-colors hover:text-gold-deep hover:underline";
+  "[overflow-wrap:anywhere] xl:whitespace-nowrap underline-offset-4 transition-colors hover:text-gold-deep hover:underline";
 
 export function ContactSection() {
   const { lang, t } = useLanguage();
-  const form = pagesContent[lang].contact.form;
+  const pc = pagesContent[lang].contact;
+  const form = pc.form;
+  const whatsapp = buildWhatsAppLink(siteConfig.whatsappNumber, siteConfig.whatsappMessage);
   return (
     <section className="bg-ivory px-5 py-12 lg:px-10">
       <h2 className="text-center text-3xl font-semibold text-forest-deep md:text-4xl">
         {t.contact.title}
       </h2>
-      <div className="mx-auto mt-9 grid max-w-6xl gap-8 md:grid-cols-[1fr_1.1fr_1.5fr]">
+      <div className="mx-auto mt-9 grid max-w-6xl gap-8 sm:grid-cols-2 xl:grid-cols-[repeat(4,auto)] xl:justify-between">
         <ContactBlock icon={<MapPin className="size-8" />} title={t.contact.location} delay={0}>
           {siteConfig.location}
         </ContactBlock>
@@ -58,19 +61,37 @@ export function ContactSection() {
             />
           </div>
         </ContactBlock>
-        <ContactBlock icon={<Share2 className="size-8" />} title={t.contact.connect} delay={200}>
+        <ContactBlock icon={<WhatsAppIcon size={30} />} title={pc.phone} delay={200}>
+          <a href={`tel:+${siteConfig.whatsappNumber}`} className={linkClass}>
+            {siteConfig.whatsappDisplay}
+          </a>
+          <div>
+            <a
+              href={whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1 inline-flex items-center gap-1.5 whitespace-nowrap rounded-md border border-gold-deep/50 px-2 py-0.5 text-xs font-medium text-forest-deep transition-colors hover:bg-gold/20"
+            >
+              <WhatsAppIcon size={14} />
+              {pc.whatsappText}
+            </a>
+          </div>
+        </ContactBlock>
+        <ContactBlock icon={<Github className="size-8" />} title={siteConfig.linkedin ? t.contact.connect : pc.github} delay={300}>
           <p>
-            GitHub:{" "}
+            {siteConfig.linkedin && "GitHub: "}
             <a href={siteConfig.github.url} target="_blank" rel="noopener noreferrer" className={linkClass}>
               {siteConfig.github.label}
             </a>
           </p>
-          <p>
-            LinkedIn:{" "}
-            <a href={siteConfig.linkedin.url} target="_blank" rel="noopener noreferrer" className={linkClass}>
-              {siteConfig.linkedin.label}
-            </a>
-          </p>
+          {siteConfig.linkedin && (
+            <p>
+              LinkedIn:{" "}
+              <a href={siteConfig.linkedin.url} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                {siteConfig.linkedin.label}
+              </a>
+            </p>
+          )}
         </ContactBlock>
       </div>
     </section>

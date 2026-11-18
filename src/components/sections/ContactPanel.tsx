@@ -11,7 +11,7 @@ import { useLanguage } from "@/lib/language";
 import { ContactForm } from "./ContactForm";
 import { DarkSection } from "./DarkSection";
 
-const linkClass = "break-all underline-offset-4 transition-colors hover:text-gold hover:underline";
+const linkClass = "[overflow-wrap:anywhere] xl:whitespace-nowrap underline-offset-4 transition-colors hover:text-gold hover:underline";
 
 function Item({ icon, title, children, delay }: { icon: ReactNode; title: string; children: ReactNode; delay: number }) {
   return (
@@ -32,7 +32,7 @@ export function ContactPanel() {
 
   return (
     <DarkSection title={c.title} subtitle={c.subtitle}>
-      <div className="mx-auto mt-10 grid max-w-6xl gap-7 sm:grid-cols-2 lg:grid-cols-[1fr_1.3fr_1.3fr_1.4fr]">
+      <div className="mx-auto mt-10 grid max-w-6xl gap-7 sm:grid-cols-2 xl:grid-cols-[repeat(4,auto)] xl:justify-between">
         <Item icon={<MapPin className="size-9" strokeWidth={1.5} />} title={c.location} delay={0}>
           {siteConfig.location}
         </Item>
@@ -49,9 +49,20 @@ export function ContactPanel() {
           </div>
         </Item>
         <Item icon={<WhatsAppIcon size={34} />} title={c.phone} delay={160}>
-          <a href={whatsapp} target="_blank" rel="noopener noreferrer" className={linkClass}>
-            {c.whatsappText}
+          <a href={`tel:+${siteConfig.whatsappNumber}`} className={linkClass}>
+            {siteConfig.whatsappDisplay}
           </a>
+          <div>
+            <a
+              href={whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1 inline-flex items-center gap-1.5 rounded-md border border-gold/50 px-2 py-0.5 text-xs font-medium text-gold-light transition-colors hover:bg-gold/15"
+            >
+              <WhatsAppIcon size={14} />
+              {c.whatsappText}
+            </a>
+          </div>
         </Item>
         <div className="flex flex-col gap-6">
           <Item icon={<Github className="size-9" strokeWidth={1.5} />} title={c.github} delay={240}>
@@ -59,11 +70,13 @@ export function ContactPanel() {
               {siteConfig.github.label}
             </a>
           </Item>
-          <Item icon={<Linkedin className="size-9" strokeWidth={1.5} />} title={c.linkedin} delay={320}>
-            <a href={siteConfig.linkedin.url} target="_blank" rel="noopener noreferrer" className={linkClass}>
-              {siteConfig.linkedin.label}
-            </a>
-          </Item>
+          {siteConfig.linkedin && (
+            <Item icon={<Linkedin className="size-9" strokeWidth={1.5} />} title={c.linkedin} delay={320}>
+              <a href={siteConfig.linkedin.url} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                {siteConfig.linkedin.label}
+              </a>
+            </Item>
+          )}
         </div>
       </div>
 
