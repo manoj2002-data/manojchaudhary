@@ -5,7 +5,7 @@
  *  photo, texts in English and German) lives in this one file.
  * ============================================================
  */
-import portraitAsset from "@/assets/manoj-portrait.jpg.asset.json";
+import portraitAsset from "@/assets/manoj-portrait-v2.jpg.asset.json";
 
 export type Lang = "en" | "de";
 
