@@ -5,7 +5,8 @@
  *  photo, texts in English and German) lives in this one file.
  * ============================================================
  */
-import portraitAsset from "@/assets/manoj-portrait-v2.jpg.asset.json";
+// Bundled with the site (ES import) so the photo works on any host: Lovable, Vercel, GitHub Pages.
+import portraitImg from "@/assets/manoj-portrait.jpg";
 
 export type Lang = "en" | "de";
 
@@ -14,7 +15,7 @@ export const siteConfig = {
   initials: "MC",
 
   /** Profile photo shown at the top of the homepage. Replace with your own image URL or import. */
-  portraitUrl: portraitAsset.url,
+  portraitUrl: portraitImg,
 
   /** Real WhatsApp number (confirmed by Manoj), international format, digits only. */
   whatsappNumber: "918956496988",
